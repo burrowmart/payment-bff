@@ -1,0 +1,34 @@
+openapi: 3.0.0
+paths:
+  /health:
+    get:
+      operationId: HealthController_check
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+        - health
+  /orders/{orderId}/payments:
+    get:
+      operationId: PaymentsController_list
+      parameters:
+        - name: orderId
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Payments for an order — payment-service, page/limit pass through, response reshaped
+      tags:
+        - payments
+info:
+  title: Payment BFF API
+  description: Thin REST aggregation BFF over payment-service.
+  version: 0.1.0
+  contact: {}
+tags: []
+servers: []
+components:
+  schemas: {}
